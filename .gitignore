@@ -1,0 +1,6 @@
+npm-debug.log*
+node_modules
+/lib/
+mock.js
+coverage
+example/storage

@@ -1,0 +1,44 @@
+{
+  "name": "verdaccio-badges",
+  "version": "1.0.0",
+  "description": "A verdaccio plugin to provide a version badge generator endpoint",
+  "main": "lib/index.js",
+  "files": [
+    "lib/"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "gh-badges": "^2.2.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@verdaccio/babel-preset": "^8.5.0",
+    "@verdaccio/eslint-config": "^8.5.0",
+    "eslint": "^6.6.0",
+    "jest": "^24.9.0",
+    "js-yaml": "^3.13.1",
+    "prettier": "^1.19.1",
+    "supertest": "^4.0.2"
+  },
+  "keywords": [
+    "verdaccio",
+    "plugin",
+    "badge",
+    "badges",
+    "verdaccio-plugin"
+  ],
+  "license": "MIT",
+  "author": "Adam Tavener",
+  "scripts": {
+    "build": "npm run build:js",
+    "build:js": "babel src/ --out-dir lib --extensions \".js\"",
+    "test": "jest",
+    "lint": "eslint \"**/*.js\"",
+    "dev": "babel-node dev.js"
+  }
+}
