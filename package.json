@@ -1,6 +1,6 @@
 {
   "name": "verdaccio-badges",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A verdaccio plugin to provide a version badge generator endpoint",
   "repository": {
     "type": "git",
