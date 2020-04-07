@@ -11,13 +11,21 @@ const getVersion = ({ scope, name, registry } = {}) =>
       resolve({ version, output });
     }
 
-    const npm = spawn('npm', ['view', pkgName, 'version', '--registry', registry, '--update-notifier', false, '--json']);
+    const npm = spawn('npm', [
+      'view',
+      pkgName,
+      'version',
+      '--registry',
+      registry,
+      '--update-notifier',
+      false,
+      '--json',
+    ]);
 
     npm.stdout.on('data', data => {
       const rawJson = `${data}`;
       const parsedJson = JSON.parse(rawJson);
       output['stdout'] = parsedJson;
-      console.log('**typeof', typeof parsedJson);
       if (parsedJson.error || typeof parsedJson !== 'string') {
         version = 'undefined';
       } else {
