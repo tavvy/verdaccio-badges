@@ -17,10 +17,22 @@ If this is the first/only plugin you are loading check the [example](./example) 
 
 In your `config.yaml` file add the following configuration to `middlewares`
 
+**If using Verdaccio Dockerfile:**
 ```yaml
 middlewares:
   badges:
     enabled: true
+```
+
+**Non-Dockerfile setup:**
+```yaml
+middlewares:
+  badges:
+    enabled: true
+    registry: 'http://localhost:4873' # optional - see below
+    # by default the registry url will be generated from environment varialbes present in the verdaccio Dockerfile
+    # if the variables are not present it will fallback to registry.npmjs.org and so will fail to generate badges for your private packages
+    # to fix this you could set it manually to app localhost as demonstrated above
 ```
 
 Now once you restart your Verdaccio instance visit:

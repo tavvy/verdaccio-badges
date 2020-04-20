@@ -6,9 +6,15 @@ class VerdaccioMiddlewarePlugin {
   constructor(config, options) {
     this.config = config;
     this.debug = config.debug;
-    this.registry = config.registry || `${process.env.VERDACCIO_PROTOCOL}://0.0.0.0:${process.env.VERDACCIO_PORT}`;
+    this.registry = this.setRegistry(config.registry);
     this.endpoint = config.endpoint || `/-/badge/`;
     this.format = config.format || {};
+  }
+
+  setRegistry(registryConfigValue) {
+    if (registryConfigValue) return registryConfigValue;
+    if (process.env.VERDACCIO_PROTOCOL && process.env.VERDACCIO_PORT) return `${process.env.VERDACCIO_PROTOCOL}://0.0.0.0:${process.env.VERDACCIO_PORT}`;
+    return 'https://registry.npmjs.org';
   }
 
   log(type, msg) {
