@@ -43,6 +43,7 @@ https://your.verdaccio.url/-/badge/<SCOPE>/<NAME>.svg
 
 e.g
 https://0.0.0.0:4873/-/badge/myorg/my-package.svg
+https://0.0.0.0:4873/-/badge/@myorg/my-package.svg
 https://internal.npm.com/-/badge/my-package.svg
 ```
 
