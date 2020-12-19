@@ -4,7 +4,7 @@ const getVersion = ({ scope, name, registry } = {}) =>
   new Promise(resolve => {
     const output = {};
     let version = 'undefined';
-    const pkgName = scope ? `@${scope}/${name}` : name;
+    const pkgName = scope ? `@${scope.replace('@', '')}/${name}` : name;
 
     if (!pkgName) {
       output['error'] = `invalid lookup: ${pkgName}`;
